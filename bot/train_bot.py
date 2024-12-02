@@ -102,12 +102,13 @@ def run(playwright: Playwright) -> None:
             tr = page.get_by_test_id(f"{n}")
 
             board_time = tr.get_by_role("gridcell").first.locator(".seferSorguTableBuyuk").inner_text()
+            print(board_time)
             if SAAT != "":
                 if ":" in SAAT:
                     if board_time != SAAT:
                         continue
                 else:
-                    m_saat = board_time.split(":")[0]
+                    m_saat = board_time.split(":")[0].strip()
                     if int(m_saat) < int(SAAT) or int(m_saat) > int(UNTIL):
                         continue
             # check if row has ekonomi seat

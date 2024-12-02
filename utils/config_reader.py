@@ -17,9 +17,9 @@ def initialize_config(config_dir="config"):
     if not _config:
         _config = ConfigParser()
         for entry in os.scandir(config_dir):
-            if entry.is_file() and entry.name.endswith(".ini"):
+            if entry.is_file() and entry.name == "config.ini":
                 config_file_path = os.path.join(config_dir, entry.name)
-                _config.read(config_file_path)
+                _config.read(config_file_path, "utf-8")
 
     # Read user defined config file
     user_config_path = os.environ.get("VFS_BOT_CONFIG_PATH")

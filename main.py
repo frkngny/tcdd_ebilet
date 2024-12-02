@@ -1,4 +1,4 @@
-from bot import train_bot
+from bot import tcdd_bot
 from utils.timer import countdown
 from utils.config_reader import get_config_value, initialize_config
 
@@ -6,7 +6,7 @@ from utils.config_reader import get_config_value, initialize_config
 initialize_config()
 
 while True:
-    appointment_found = train_bot.start()
+    appointment_found = tcdd_bot.start()
     if appointment_found:
         break
     countdown(
